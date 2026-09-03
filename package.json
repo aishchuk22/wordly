@@ -1,0 +1,24 @@
+{
+  "name": "wordly",
+  "version": "1.0.0",
+  "description": "A WORDLY-like project htat implements all usual and expected features for an online word-base game, including authorization, leaderboard, several game regimes as well as multiplayer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aishchuk22/wordly.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aishchuk22/wordly/issues"
+  },
+  "homepage": "https://github.com/aishchuk22/wordly#readme",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}
