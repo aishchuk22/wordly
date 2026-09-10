@@ -72,6 +72,7 @@ web_modules/
 
 # Local Claude Code config (not shared with the repo)
 CLAUDE.md
+PLAN.md
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
