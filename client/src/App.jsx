@@ -4,8 +4,8 @@ import Board from "./components/Board";
 
 function App() {
   const [secretWord] = useState(getRandomWord);
-  const [guesses] = useState(["apple", "beach"]);
-  const [currentGuess] = useState("grap");
+  const [guesses] = useState([]);
+  const [currentGuess] = useState("");
 
   return (
     <div className="flex flex-col items-center gap-6 mt-8">
