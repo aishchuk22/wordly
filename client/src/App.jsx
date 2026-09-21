@@ -5,7 +5,7 @@ import Keyboard from "./components/Keyboard";
 
 function App() {
   const [secretWord] = useState(getRandomWord);
-  const [guesses] = useState(["apple", "beach"]);
+  const [guesses] = useState([]);
   const [currentGuess] = useState("");
 
   return (
