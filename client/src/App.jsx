@@ -1,12 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getRandomWord } from "./utils/wordUtils";
 import Board from "./components/Board";
 import Keyboard from "./components/Keyboard";
 
 function App() {
   const [secretWord] = useState(getRandomWord);
-  const [guesses] = useState([]);
-  const [currentGuess] = useState("");
+  const [guesses, setGuesses] = useState([]);
+  const [currentGuess, setCurrentGuess] = useState("");
+
+  const isWon = guesses.includes(secretWord);
+  const isLost = !isWon && guesses.length >= 6;
+  const isGameOver = isWon || isLost;
+
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (isGameOver) return;
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
+
+      if (event.key === "Enter") {
+        if (currentGuess.length !== 5) return;
+        setGuesses([...guesses, currentGuess]);
+        setCurrentGuess("");
+      } else if (event.key === "Backspace") {
+        setCurrentGuess(currentGuess.slice(0, -1));
+      } else if (/^[a-zA-Z]$/.test(event.key) && currentGuess.length < 5) {
+        setCurrentGuess(currentGuess + event.key.toLowerCase());
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentGuess, guesses, isGameOver]);
 
   return (
     <div className="flex flex-col items-center gap-6 mt-8">
