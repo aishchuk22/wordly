@@ -13,7 +13,7 @@ const keyStyle = {
   absent: "bg-gray-500 text-white",
 };
 
-function Keyboard({ guesses, secretWord }) {
+function Keyboard({ guesses, secretWord, onKeyClick }) {
   const letterStatuses = getLetterStatuses(guesses, secretWord);
 
   return (
@@ -28,6 +28,7 @@ function Keyboard({ guesses, secretWord }) {
               <button
                 key={key}
                 type="button"
+                onClick={() => onKeyClick(key)}
                 className={`h-12 rounded font-bold uppercase flex items-center justify-center ${isSpecial ? "px-3 text-xs" : "w-9"} ${keyStyle[status]}`}
               >
                 {key === "backspace" ? "⌫" : key === "enter" ? "Enter" : key}
