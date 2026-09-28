@@ -48,3 +48,7 @@ export function getLetterStatuses(guesses, secret) {
 
   return letterStatuses;
 }
+
+export function isValidWord(word) {
+  return WORDS.includes(word);
+}
