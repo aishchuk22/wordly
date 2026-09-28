@@ -35,6 +35,7 @@ function App() {
 
   useEffect(() => {
     function handleKeyDown(event) {
+      if (event.repeat) return;
       if (event.ctrlKey || event.metaKey || event.altKey) return;
 
       if (event.key === "Enter") {
